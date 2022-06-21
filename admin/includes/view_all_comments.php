@@ -57,18 +57,18 @@
                    
                       
 
-                        $query = "SELECT * FROM comments";
+                        // $query = "SELECT * FROM comments";
 
-                        $select_categories_id = mysqli_query($connection,$query);
+                        // $select_categories_id = mysqli_query($connection,$query);
 
                         // while ($row = mysqli_fetch_assoc($select_categories_id)){
 
                         // $cat_id =  $row['cat_id'];
                         // $cat_title = $row['cat_title'];}
 
-                        echo "<td><a href = 'posts.php?source=edit_post&p_id='>Approve</a></td>";
-                        echo "<td><a href = 'posts.php?delete='>Unapprove</a></td>";
-                        echo "<td><a href = 'posts.php?delete='>Delete</a></td>";
+                        echo "<td><a href = 'comments.php?approve=$comment_id'>Approve</a></td>";
+                        echo "<td><a href = 'comments.php?unapprove=$comment_id'>Unapprove</a></td>";
+                        echo "<td><a href = 'comments.php?delete=$comment_id'>Delete</a></td>";
                         echo  "</tr>";
 
                     }
@@ -80,11 +80,39 @@
 </table>
 
 <?php  
+if(isset($_GET['approve'])){
+    $the_comment_id = $_GET['approve'];
+
+    $query = "UPDATE comments SET comment_status = 'approved' WHERE comment_id = $the_comment_id ";
+    $update_comment_status = mysqli_query($connection, $query);
+    echo("<script>location.href = 'comments.php';</script>");
+    // header("Location: comments.php");
+}
+
+if(isset($_GET['unapprove'])){
+    $the_comment_id = $_GET['unapprove'];
+
+    $query = "UPDATE comments SET comment_status = 'unapproved' WHERE comment_id = $the_comment_id ";
+    $update_comment_status= mysqli_query($connection, $query);
+    echo("<script>location.href = 'comments.php';</script>");
+    // header("Location: comments.php");
+}
+
+
+
+
+
+
+
+
+
+
+
 if(isset($_GET['delete'])){
-    $the_post_id = $_GET['delete'];
-    $query = "DELETE FROM posts WHERE post_id = {$the_post_id} ";
+    $the_comment_id = $_GET['delete'];
+    $query = "DELETE FROM comments WHERE comment_id = {$the_comment_id} ";
     $delete_query = mysqli_query($connection, $query);
-
-
+    echo("<script>location.href = 'comments.php';</script>");
+    // header("Location: comments.php");
 }
 ?>
