@@ -1,5 +1,3 @@
-
-
 <?php include "functions.php" ?>
 <?php include "includes/admin_header.php" ?>
 
@@ -44,8 +42,6 @@
                         default:
 
                         include "includes/view_all_comments.php";
-
-
                     }
                     ?>
                     </div>
