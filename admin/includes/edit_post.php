@@ -24,7 +24,7 @@
     }
 
     if(isset($_POST['submit_post'])){
-        echo "Hello WOlrd";
+   
         $post_title = $_POST['title'];
         $post_author = $_POST['author'];
         $post_category= $_POST['post_category'];

@@ -59,9 +59,6 @@ include "includes/navigation.php";
              <hr>
 
            <?php } }?>
-
-
-
             </div>
 
             <!-- Blog Sidebar Widgets Column -->

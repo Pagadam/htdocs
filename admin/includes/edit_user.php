@@ -21,33 +21,26 @@
     }
 
     if(isset($_POST['update_user'])){
-        echo "Hello WOlrd";
+    
         $username = $_POST['username'];
-      
         $userpassword = $_POST['user_password'];
         $user_firstname = $_POST['user_firstname'];
         $user_lastname = $_POST['user_lastname'];
         $user_email = $_POST['user_email'];
         $user_role = $_POST['user_role'];
-        
+
 
         
         $query = "UPDATE users SET ";
-        $query .= "username = '{$username}', ";
-        $query .= "user_password = '{$userpassword}', ";
         $query .= "user_firstname = '{$user_firstname}', ";
         $query .= "user_lastname = '{$user_lastname}', ";
-        $query .= "user_email = '{$user_email}', ";
         $query .= "user_role = '{$user_role}', ";
+        $query .= "username = '{$username}', ";
+        $query .= "user_email = '{$user_email}', ";
+        $query .= "user_password = '{$userpassword}' ";
         $query .= "WHERE user_id = {$user_id} ";
 
-
-
-  
-
-
-
-         $update_users = mysqli_query($connection, $query);
+        $update_users = mysqli_query($connection, $query);
 
          confirm($update_users);
 
