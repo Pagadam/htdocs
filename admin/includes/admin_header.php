@@ -1,12 +1,19 @@
+<?php session_start() ?>
 <?php include "../includes/db.php" ?>
-<?php session_start(); ?>
-<?php ob_start(); ?>
+
+<!-- <?php   echo "SESSION_DATA" . var_dump($_SESSION); ?> -->
+<?php ob_start(); ?> 
+
+<?php if(!isset($_SESSION['user_role'])){
+
+    echo("<script>location.href = '../index.php';</script>");
+
+}
+?>
 
 
 
-
-
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 
 <head>
@@ -17,7 +24,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><?php echo $_SESSION['username'];?></title>
+    <title><?php echo $_SESSION['username'] ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">

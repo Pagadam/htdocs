@@ -1,5 +1,6 @@
-<?php include "db.php"; ?>
 <?php session_start(); ?>
+<?php include "db.php"; ?>
+
 
 <?php 
     if(isset($_POST['login'])){
@@ -24,16 +25,18 @@
             $db_user_role = $row['user_role'];
         }
 
-        if ($db_username !== $username && $db_userpassword !== $password){
-            echo("<script>location.href = '../index.php';</script>");
-        } else if ($db_username == $username && $db_userpassword == $password){
+        if ($username === $db_username && $password === $db_userpassword){
             $_SESSION['username'] = $db_username;
-            $_SESSION['firstname'] = $db_firstname;
-            $_SESSION['lastname'] = $db_lastname;
+            $_SESSION['firstname'] = $db_user_firstname;
+            $_SESSION['lastname'] = $db_user_lastname;
             $_SESSION['user_role'] = $db_user_role;
 
+           
+            
+
             //echo   $_SESSION['username'];
-            echo("<script>location.href = '../admin';</script>");
+            //echo ("<a href = 'test.php'>Link to admnin </a>");
+            echo("<script>location.href = '/admin';</script>");
         } else{
             echo("<script>location.href = '../index.php';</script>");
         }
