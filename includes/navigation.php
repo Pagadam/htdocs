@@ -1,5 +1,4 @@
-
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -32,8 +31,14 @@
                     <li>
                       <a href="admin">Admin</a>
                     </li>
+
+                    <li>
+                      <a href="registration.php">Registration</a>
+                    </li>
+
+
+
                     <?php
-                    var_dump($_SESSION);
                     if(isset($_SESSION['user_role'])){
                         echo "Hello world";
                         if(isset($_GET['p_id'])){
